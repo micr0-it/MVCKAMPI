@@ -11,8 +11,9 @@ namespace DataAccesLayer.Abstract
     {
         List<T> List();
         void Insert(T p);
+        T Get(Expression<Func<T, bool>> filter); // id si 5 olan yazar
         void Update(T p);
         void Delete(T p);
-        List<T> List(Expression<Func<T, bool>> filter); // Şartlı listeleme
+        List<T> List(Expression<Func<T, bool>> filter); // Şartlı listeleme ismi ali olan yazarlar
     }
 }
