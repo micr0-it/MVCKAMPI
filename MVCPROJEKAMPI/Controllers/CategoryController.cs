@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccesLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +37,21 @@ namespace MVCPROJEKAMPI.Controllers
         public ActionResult AddCategory(Category p)
         {
             //cm.CategoryAddBL(p);
-            return RedirectToAction("GetCategoryList");
+            CategoryValidator validator = new CategoryValidator();
+            ValidationResult results = validator.Validate(p); // burada result degıskenı categoryvalidator sınıfında olan degerlere gore parametremızdeki dogruluk kotnrolune bakıcaz
+            if (results.IsValid)
+            {
+                cm.CategoryAddBL(p);
+                return RedirectToAction("GetCategoryList");
+            }
+            else
+            {
+                foreach (var item in results.Errors)//hata mesajlarının tutuldugu dızın
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 
