@@ -49,5 +49,36 @@ namespace MVCPROJEKAMPI.Controllers
             hm.HeadingAddBL(heading);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            List<SelectListItem> valuecategory = (from x in cm.GetCategoryList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }).ToList();
+            ViewBag.vlc = valuecategory;
+            var headingvalues = hm.GetByID(id);
+            return View(headingvalues);
+        }
+
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading)
+        {
+            hm.HeadingUpdate(heading);
+            return RedirectToAction("Index");
+        }
+        
+        [HttpGet]
+        public ActionResult DeleteHeading(int id)
+        {
+            var headingvalues = hm.GetByID(id);
+            headingvalues.HeadingStatus = false;
+            hm.HeadingDelete(headingvalues);
+            return RedirectToAction("Index");
+        }
+
     }
 }

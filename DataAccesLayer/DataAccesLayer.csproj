@@ -83,6 +83,18 @@
     <Compile Include="Migrations\202206141005448_mig3_writer_edit.designer.cs">
       <DependentUpon>202206141005448_mig3_writer_edit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206150935482_mig4_writer_edit.cs" />
+    <Compile Include="Migrations\202206150935482_mig4_writer_edit.designer.cs">
+      <DependentUpon>202206150935482_mig4_writer_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206151101324_mig5_content_edit.cs" />
+    <Compile Include="Migrations\202206151101324_mig5_content_edit.designer.cs">
+      <DependentUpon>202206151101324_mig5_content_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206151105045_mig6_heading_edit.cs" />
+    <Compile Include="Migrations\202206151105045_mig6_heading_edit.designer.cs">
+      <DependentUpon>202206151105045_mig6_heading_edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +120,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206141005448_mig3_writer_edit.resx">
       <DependentUpon>202206141005448_mig3_writer_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206150935482_mig4_writer_edit.resx">
+      <DependentUpon>202206150935482_mig4_writer_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151101324_mig5_content_edit.resx">
+      <DependentUpon>202206151101324_mig5_content_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151105045_mig6_heading_edit.resx">
+      <DependentUpon>202206151105045_mig6_heading_edit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
